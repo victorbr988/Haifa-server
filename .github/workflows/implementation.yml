@@ -1,0 +1,21 @@
+name: Validando pull request
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Install Node.js
+      uses: actions/setup-node@v1
+      with: 
+        node-version: 18.x
+    - run: npm i
+    - run: npm run test
+      env:
+        CI: true
