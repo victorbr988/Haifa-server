@@ -15,7 +15,10 @@ jobs:
       uses: actions/setup-node@v1
       with: 
         node-version: 18.x
-    - run: npm i
-    - run: npm run test
+    - name: Instalando dependências
+      run: npm i
+
+    - name: Rodando os testes unitários
+      run: npm run test
       env:
         CI: true
