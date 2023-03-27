@@ -1,8 +1,8 @@
-name: Validando pull request
+name: Validando push
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  Branch:
+  - main
 
 jobs:
   build:
