@@ -1,8 +1,9 @@
 name: Validando push
 
 on:
-  Branch:
-  - main
+  push:
+    Branches:
+      - main
 
 jobs:
   build:
