@@ -1,4 +1,4 @@
-import Autentication, { PayloadProps } from "./authentication";
+import Autentication, { PayloadProps } from "./Authentication";
 
 describe("testando camada de autenticação de usuário", () => {
   // Verificação de token
@@ -13,7 +13,6 @@ describe("testando camada de autenticação de usuário", () => {
     it("É esperado que seja retornado uma mensagem de sucesso", () => {
       const payload = {
         email: "myfakeemail@gmail.com",
-        password: "12345678"
       };
       const VALID_TOKEN = Autentication.createToken(payload);
 
@@ -27,7 +26,6 @@ describe("testando camada de autenticação de usuário", () => {
     it("É esperado que seja retornado um token de autorização", () => {
       const payload = {
         email: "myfakeemail@gmail.com",
-        password: "12345678"
       };
 
       const tokenCreated = Autentication.createToken(payload);
@@ -49,14 +47,13 @@ describe("testando camada de autenticação de usuário", () => {
     it("É esperado que seja retornado as informações do usuário", () => {
       const payload = {
         email: "myfakeemail@gmail.com",
-        password: "12345678"
       };
 
       const tokenCreated = Autentication.createToken(payload);
       const decodeToken = Autentication.decodeToken(tokenCreated);
 
       expect(decodeToken.email).toBeTruthy();
-      expect(decodeToken.password).toBeTruthy();
+      expect(decodeToken.email).toBe(payload.email);
     });
   });
 

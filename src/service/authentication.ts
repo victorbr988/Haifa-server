@@ -3,7 +3,6 @@ import jwt from "jsonwebtoken";
 
 export interface PayloadProps {
   email: string;
-  password: string;
 }
 
 interface AutenticationProps {
@@ -27,7 +26,7 @@ class Autentication implements AutenticationProps {
 
   public createToken(payload: PayloadProps): string{
     try {
-      if(!payload["email"] || !payload["password"]) throw new Error("Payload cannot be empty");
+      if(!payload["email"]) throw new Error("Payload cannot be empty");
       
       const SECRET_TOKEN = process.env.JWT_SECRET as string;
 
