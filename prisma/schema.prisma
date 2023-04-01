@@ -9,3 +9,27 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Ticket {
+  id    String @id
+  file  String @unique
+}
+
+model Report {
+  id    String @id
+  file  String @unique
+}
+
+model User {
+  id        String @id
+  email     String @unique
+  password  String
+  profile   Profile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  profileId Int
+}
+
+model Profile {
+  id          Int @default(autoincrement()) @unique
+  Permission  String
+  userId      User[]
+}
