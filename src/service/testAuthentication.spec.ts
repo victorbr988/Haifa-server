@@ -1,4 +1,4 @@
-import Autentication, { PayloadProps } from "./Authentication";
+import Autentication, { PayloadProps } from "./authentication";
 
 describe("testando camada de autenticação de usuário", () => {
   // Verificação de token

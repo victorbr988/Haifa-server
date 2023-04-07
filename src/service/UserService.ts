@@ -1,5 +1,5 @@
 import UserModel from "../models/UserModel";
-import Authentication from "./Authentication";
+import Authentication from "./authentication";
 
 interface UserProps {
   email: string;
